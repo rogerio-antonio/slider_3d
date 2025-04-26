@@ -1,0 +1,104 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #eaeaea;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+}
+
+.carousel-container {
+  perspective: 1200px;
+  width: 90%;
+  max-width: 800px;
+  height: 400px;
+  position: relative;
+}
+
+.carousel {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: rotate 40s infinite linear;
+}
+
+.item {
+  width: 250px;
+  height: 150px;
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-style: preserve-3d;
+  transform-origin: center center;
+  transition: transform 1s;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Posicionar cada item em ângulos diferentes */
+.item:nth-child(1) {
+  transform: rotateY(0deg) translateZ(400px);
+}
+.item:nth-child(2) {
+  transform: rotateY(60deg) translateZ(400px);
+}
+.item:nth-child(3) {
+  transform: rotateY(120deg) translateZ(400px);
+}
+.item:nth-child(4) {
+  transform: rotateY(180deg) translateZ(400px);
+}
+.item:nth-child(5) {
+  transform: rotateY(240deg) translateZ(400px);
+}
+.item:nth-child(6) {
+  transform: rotateY(300deg) translateZ(400px);
+}
+
+.buttons {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+.buttons button {
+  padding: 10px 20px;
+  margin: 0 10px;
+  font-size: 18px;
+  border: none;
+  border-radius: 50%;
+  background: #333;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.buttons button:hover {
+  background: #555;
+  transform: scale(1.1);
+}
+
+/* Pausar animação quando usuário interagir */
+.carousel.pause {
+  animation-play-state: paused;
+}
+
+/* Rotações contínuas automáticas */
+@keyframes rotate {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
